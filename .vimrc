@@ -15,16 +15,22 @@ Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
 Bundle 'Tagbar'
 Bundle 'ctrlp.vim'
+Bundle 'minibufexpl.vim'
+Bundle 'bufexplorer.zip'
+"Bundle 'winmanager'
 
 filetype plugin indent on     " required! 
 " vundle end
 
 " personal setting
-set cindent
-set nu
+set cindent      " c indent
+set nu           " line number
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set cursorline   " cursor line
+" hi cursorline ctermbg=darkred ctermfg=white
+set mouse=a
 colorscheme desert
 
 " For search highlight
@@ -38,10 +44,13 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR> 
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
+" nnoremap <C-h> <C-W>h
+" nnoremap <C-j> <C-W>j
+" nnoremap <C-k> <C-W>k
+" nnoremap <C-l> <C-W>l
+
+" Quick close all window
+map <leader>qq :qall<CR>
 
 " For quick replace
 map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
@@ -60,22 +69,33 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " For NERDTree plugin
 autocmd vimenter * NERDTree
 map <leader>t :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 
 " For Tagbar plugin
 noremap <silent> <F9> :TagbarToggle<CR>
 
-" For BufExplorer shortcut key
-noremap <silent> <F11> :BufExplorer<CR>
-
 " For TagList plugin
-filetype plugin on
+" filetype plugin on
 noremap <silent> <F10> :TlistToggle<CR>
 let Tlist_Use_Right_Window=1
 let Tlist_WinWidth=40
 let Tlist_Exit_OnlyWindow=1
 let Tlist_File_Fold_Auto_Close=1
+
+" For BufExplorer shortcut key
+noremap <silent> <F11> :BufExplorer<CR>
+
+" For MiniBufExplorer
+let g:miniBufExplorerAutoUpdate = 1 " stop MBE from auto start
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+" let g:miniBufExplMapAltVimSwitchBufs = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
+" hot key for toggle minibufexplorer
+noremap <leader>m :TMiniBufExplorer<CR>
+noremap <C-Left>  :MBEbn<CR>
+noremap <C-Right> :MBEbp<CR>
 
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
@@ -87,6 +107,10 @@ let g:ctrlp_by_filename=1
 let g:ctrlp_custom_ignore={
 	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$',
 	\}
+
+" For windows mangaer
+
+
 
 "let g:clang_auto_select=1
 "let g:clang_complete_auto=1
