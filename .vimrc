@@ -17,7 +17,9 @@ Bundle 'Tagbar'
 Bundle 'ctrlp.vim'
 Bundle 'minibufexpl.vim'
 Bundle 'bufexplorer.zip'
-"Bundle 'winmanager'
+Bundle 'tomasr/molokai'
+" Bundle 'molokai'
+" Bundle 'winmanager'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -30,8 +32,12 @@ set softtabstop=4
 set shiftwidth=4
 set cursorline   " cursor line
 " hi cursorline ctermbg=darkred ctermfg=white
-set mouse=a
-colorscheme desert
+set mouse=nv     " enable mouse action in normal/visual mode
+set hidden       " allow buffer switch without save
+
+" colorscheme desert
+colorscheme molokai 
+let g:rehash256=1
 
 " For search highlight
 set hlsearch
@@ -59,7 +65,7 @@ map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
 let OmniCpp_NamespaceSearch = 1      
 let OmniCpp_GlobalScopeSearch = 1      
 let OmniCpp_ShowScopeInAbbr = 1
-let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_ShowPrototypeInAbbr = 0 " don't show prototype
 let OmniCpp_ShowAccess = 1      
 let OmniCpp_MayCompleteDot = 1
 let OmniCpp_MayCompleteArrow = 1      
@@ -71,6 +77,15 @@ autocmd vimenter * NERDTree
 map <leader>t :NERDTreeToggle<CR>
 "let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
+" Used by winmanager
+" let g:NERDTree_title="[NERDTree]"
+" function! NERDTree_Start()
+"     exe 'NERDTree'
+" endfunction
+" 
+" function! NERDTree_IsValid()
+"     return 1
+" endfunction
 
 " For Tagbar plugin
 noremap <silent> <F9> :TagbarToggle<CR>
@@ -87,15 +102,25 @@ let Tlist_File_Fold_Auto_Close=1
 noremap <silent> <F11> :BufExplorer<CR>
 
 " For MiniBufExplorer
-let g:miniBufExplorerAutoUpdate = 1 " stop MBE from auto start
+let g:miniBufExplorerAutoUpdate = 1 
+"let g:miniBufExplVSplit = 20   " column width in chars
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 " let g:miniBufExplMapAltVimSwitchBufs = 1
-" let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
 " hot key for toggle minibufexplorer
 noremap <leader>m :TMiniBufExplorer<CR>
 noremap <C-Left>  :MBEbn<CR>
 noremap <C-Right> :MBEbp<CR>
+" Used by winmanager
+" let g:MiniBufExplorer_title="[MiniBufExplorer]"
+" function! MiniBufExplorer_Start()
+" 	exe 'MiniBufExplorer'
+" endfunction
+" 
+" function! MiniBufExplorer_IsValid()
+" 	return 1
+" endfunction
 
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
@@ -109,8 +134,8 @@ let g:ctrlp_custom_ignore={
 	\}
 
 " For windows mangaer
-
-
+" let g:winManagerWindowLayout = 'NERDTree|BufExplorer'
+" nmap <silent> <F8> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR><CR>
 
 "let g:clang_auto_select=1
 "let g:clang_complete_auto=1
