@@ -19,6 +19,7 @@ Bundle 'minibufexpl.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/powerline'
+Bundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on     " required! 
 " vundle end
