@@ -18,8 +18,7 @@ Bundle 'ctrlp.vim'
 Bundle 'minibufexpl.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'tomasr/molokai'
-" Bundle 'molokai'
-" Bundle 'winmanager'
+Bundle 'Lokaltog/powerline'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -37,7 +36,7 @@ set hidden       " allow buffer switch without save
 
 " colorscheme desert
 colorscheme molokai 
-let g:rehash256=1
+" let g:rehash256=1
 
 " For search highlight
 set hlsearch
@@ -132,6 +131,10 @@ let g:ctrlp_by_filename=1
 let g:ctrlp_custom_ignore={
 	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$',
 	\}
+
+" For powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_symbols = 'fancy'
 
 " For windows mangaer
 " let g:winManagerWindowLayout = 'NERDTree|BufExplorer'
