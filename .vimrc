@@ -66,12 +66,15 @@ map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
 let OmniCpp_NamespaceSearch = 1      
 let OmniCpp_GlobalScopeSearch = 1      
 let OmniCpp_ShowScopeInAbbr = 1
-let OmniCpp_ShowPrototypeInAbbr = 0 " don't show prototype
+let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_ShowAccess = 1      
 let OmniCpp_MayCompleteDot = 1
 let OmniCpp_MayCompleteArrow = 1      
 let OmniCpp_MayCompleteScope = 1      
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" Do not show preview window
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " For NERDTree plugin
 autocmd vimenter * NERDTree
