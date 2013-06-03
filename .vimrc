@@ -2,8 +2,15 @@
 set nocompatible " be iMproved
 filetype off  "required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('win32') || has('win64')
+	set rtp^=~/.vim/
+	set rtp+=~/.vim/vimfiles/bundle/vundle/
+	call vundle#rc('$HOME/.vim/vimfiles/bundle')
+else
+	" Usual quickstart instructions
+	set rtp+=~/.vim/bundle/vundle/
+	call vundle#rc()
+endif
 
 " let Vundle manage plugins
 " required! 
@@ -35,10 +42,15 @@ set cursorline   " cursor line
 " hi cursorline ctermbg=darkred ctermfg=white
 set mouse=nv     " enable mouse action in normal/visual mode
 set hidden       " allow buffer switch without save
+syntax on		 " turn on syntax highlight
 
 " colorscheme desert
 colorscheme molokai 
-" let g:rehash256=1
+
+" Font for GUI
+if has('gui_running')
+	set guifont=Consolas:h11:cANSI
+endif
 
 " For search highlight
 set hlsearch
@@ -138,8 +150,10 @@ let g:ctrlp_custom_ignore={
 	\}
 
 " For powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = 'fancy'
+if !has('win32') && !has('win64')
+	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+	let g:Powerline_symbols = 'fancy'
+endif
 
 " For windows mangaer
 " let g:winManagerWindowLayout = 'NERDTree|BufExplorer'
