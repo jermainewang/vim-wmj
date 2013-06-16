@@ -134,7 +134,7 @@ map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q .<CR> <
 "let g:ctrlp_working_path_mode=1
 let g:ctrlp_by_filename=1
 let g:ctrlp_custom_ignore={
-	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$',
+	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$\|release$\|debug$',
 	\}
 
 " For powerline
