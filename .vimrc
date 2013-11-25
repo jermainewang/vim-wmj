@@ -40,7 +40,7 @@ set cursorline   " cursor line
 " hi cursorline ctermbg=darkred ctermfg=white
 set mouse=nv     " enable mouse action in normal/visual mode
 set hidden       " allow buffer switch without save
-set backspace=2  " enable backspace in insert mode
+set backspace=indent,eol,start  " enable nature backspace in insert mode
 syntax on		 " turn on syntax highlight
 
 " colorscheme desert
