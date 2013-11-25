@@ -22,7 +22,7 @@ Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
 Bundle 'Tagbar'
 Bundle 'ctrlp.vim'
-Bundle 'minibufexpl.vim'
+"Bundle 'minibufexpl.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/powerline'
@@ -63,10 +63,10 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR> 
-" nnoremap <C-h> <C-W>h
-" nnoremap <C-j> <C-W>j
-" nnoremap <C-k> <C-W>k
-" nnoremap <C-l> <C-W>l
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
 
 " Quick close all window
 map <leader>qq :qall<CR>
@@ -89,7 +89,7 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " For NERDTree plugin
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 map <leader>t :NERDTreeToggle<CR>
 "let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
