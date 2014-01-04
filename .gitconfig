@@ -1,0 +1,18 @@
+[http]
+[user]
+	name = Minjie Wang
+	email = wmjlyjemaine@gmail.com
+[core]
+	excludesfile = /home/minjie/.gitignore_global
+	editor = vim
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	unstage = reset HEAD --
+	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+	lg = !"git lg1"
+[http]
+	#proxy = http://157.60.104.162:80
