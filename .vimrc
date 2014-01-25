@@ -26,6 +26,7 @@ Bundle 'grep.vim'
 Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/powerline'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -43,12 +44,15 @@ set hidden       " allow buffer switch without save
 set backspace=indent,eol,start  " enable nature backspace in insert mode
 syntax on		 " turn on syntax highlight
 
-" colorscheme desert
-colorscheme molokai 
-
 " Font for GUI
 if has('gui_running')
-	set guifont=Consolas:h11:cANSI
+	set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
+	":h11:cANSI
+	set background=dark
+	colorscheme solarized 
+else
+	set background=dark
+	colorscheme molokai 
 endif
 
 " For search highlight
