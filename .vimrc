@@ -24,9 +24,12 @@ Bundle 'bufexplorer.zip'
 Bundle 'grep.vim'
 " Github repos
 Bundle 'tomasr/molokai'
-Bundle 'Lokaltog/powerline'
+"Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -71,6 +74,11 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
+" For quick buffer switching
+map gt :bn<CR>
+map gT :bp<CR>
+map gd :bd<CR>
+
 " Quick close all window
 map <leader>qq :qall<CR>
 
@@ -112,7 +120,7 @@ let NERDTreeShowBookmarks=1
 noremap <silent> <F9> :TagbarToggle<CR>
 
 " For BufExplorer shortcut key
-noremap <silent> <F11> :BufExplorer<CR>
+noremap <silent> <F8> :BufExplorer<CR>
 
 " For MiniBufExplorer
 "let g:miniBufExplorerAutoUpdate = 1 
@@ -142,3 +150,28 @@ if !has('win32') && !has('win64')
 	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 	let g:Powerline_symbols = 'fancy'
 endif
+
+" For vim-airline
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail_improved'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+
+" For gitgutter
+noremap <leader>g :GitGutterSignsToggle<CR>
+let g:gitgutter_signs = 0
