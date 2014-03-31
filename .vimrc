@@ -29,7 +29,7 @@ Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on     " required! 
 " vundle end
