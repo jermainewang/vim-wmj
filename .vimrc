@@ -37,9 +37,10 @@ filetype plugin indent on     " required!
 " personal setting
 set cindent      " c indent
 set nu           " line number
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 set cursorline   " cursor line
 " hi cursorline ctermbg=darkred ctermfg=white
 set mouse=nv     " enable mouse action in normal/visual mode
