@@ -24,12 +24,12 @@ Bundle 'bufexplorer.zip'
 Bundle 'grep.vim'
 " Github repos
 Bundle 'tomasr/molokai'
-"Bundle 'Lokaltog/powerline'
 Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
 "Bundle 'scrooloose/syntastic'
+Bundle 'embear/vim-localvimrc'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -176,3 +176,6 @@ let g:airline_mode_map = {
 " For gitgutter
 noremap <leader>g :GitGutterSignsToggle<CR>
 let g:gitgutter_signs = 0
+
+" For localvimrc
+let g:localvimrc_ask = 0
