@@ -31,6 +31,8 @@ Bundle 'airblade/vim-gitgutter'
 "Bundle 'scrooloose/syntastic'
 Bundle 'embear/vim-localvimrc'
 
+Bundle 'wlangstroth/vim-racket'
+
 filetype plugin indent on     " required! 
 " vundle end
 
@@ -47,6 +49,9 @@ set mouse=nv     " enable mouse action in normal/visual mode
 set hidden       " allow buffer switch without save
 set backspace=indent,eol,start  " enable nature backspace in insert mode
 syntax on		 " turn on syntax highlight
+filetype on
+filetype indent on
+filetype plugin on
 
 " Font for GUI
 if has('gui_running')
