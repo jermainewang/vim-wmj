@@ -24,6 +24,7 @@ Bundle 'bufexplorer.zip'
 Bundle 'grep.vim'
 " Github repos
 Bundle 'tomasr/molokai'
+Bundle 'sjl/badwolf'
 Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
@@ -179,3 +180,9 @@ let g:gitgutter_signs = 0
 
 " For localvimrc
 let g:localvimrc_ask = 0
+
+" For molokai
+let g:molokai_original = 1
+
+" For tagbar
+let g:tagbar_autoclose = 1
