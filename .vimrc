@@ -28,7 +28,7 @@ Bundle 'sjl/badwolf'
 Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'airblade/vim-gitgutter'
+"Bundle 'airblade/vim-gitgutter'
 "Bundle 'scrooloose/syntastic'
 Bundle 'embear/vim-localvimrc'
 
@@ -36,7 +36,6 @@ filetype plugin indent on     " required!
 " vundle end
 
 " personal setting
-set cindent      " c indent
 set nu           " line number
 set tabstop=2
 set softtabstop=2
@@ -47,6 +46,7 @@ set cursorline   " cursor line
 set mouse=nv     " enable mouse action in normal/visual mode
 set hidden       " allow buffer switch without save
 set backspace=indent,eol,start  " enable nature backspace in insert mode
+set colorcolumn=100   " maximum line length
 syntax on		 " turn on syntax highlight
 
 " Font for GUI
@@ -104,7 +104,7 @@ if v:version <= 703 || !has('python')
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 else
-	Bundle 'Valloric/YouCompleteMe'
+  Bundle 'Valloric/YouCompleteMe'
 	"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 	let g:ycm_confirm_extra_conf = 0
 	let g:ycm_autoclose_preview_window_after_completion = 1
@@ -175,14 +175,22 @@ let g:airline_mode_map = {
       \ }
 
 " For gitgutter
-noremap <leader>g :GitGutterSignsToggle<CR>
-let g:gitgutter_signs = 0
+"noremap <leader>g :GitGutterSignsToggle<CR>
+"let g:gitgutter_signs = 0
 
 " For localvimrc
-let g:localvimrc_ask = 0
+let g:localvimrc_ask = 1
 
 " For molokai
 let g:molokai_original = 1
 
 " For tagbar
 let g:tagbar_autoclose = 1
+
+" For FastFold
+Bundle 'Konfekt/FastFold'
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:tex_fold_enabled=1
