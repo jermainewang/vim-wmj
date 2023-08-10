@@ -13,7 +13,7 @@ else
 endif
 
 " let Vundle manage plugins
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " vim-scripts.org repos
@@ -25,14 +25,17 @@ Bundle 'grep.vim'
 " Github repos
 Bundle 'tomasr/molokai'
 Bundle 'sjl/badwolf'
-Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
 "Bundle 'airblade/vim-gitgutter'
 "Bundle 'scrooloose/syntastic'
 Bundle 'embear/vim-localvimrc'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'rdnetto/YCM-Generator'
+Bundle 'CoderCookE/vim-chatgpt'
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 " vundle end
 
 " personal setting
@@ -48,16 +51,17 @@ set hidden       " allow buffer switch without save
 set backspace=indent,eol,start  " enable nature backspace in insert mode
 set colorcolumn=100   " maximum line length
 syntax on		 " turn on syntax highlight
+autocmd BufNewFile,BufRead *.kky set syntax=tex  " Special syntax highlighting for kokoyi program
 
 " Font for GUI
 if has('gui_running')
 	set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
 	":h11:cANSI
 	set background=dark
-	colorscheme solarized 
+	colorscheme solarized
 else
 	set background=dark
-	colorscheme molokai 
+	colorscheme molokai
 endif
 
 " For search highlight
@@ -70,7 +74,7 @@ let mapleader=","
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR> 
+map <leader>l :wincmd l<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -88,17 +92,17 @@ map <leader>qq :qall<CR>
 map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
 
 " For C++ completion plugin
-if v:version <= 703 || !has('python')
+if v:version <= 703 || !(has('python') || has('python3'))
 	" For omnicomplete
 	Bundle 'OmniCppComplete'
-	let OmniCpp_NamespaceSearch = 1      
-	let OmniCpp_GlobalScopeSearch = 1      
+	let OmniCpp_NamespaceSearch = 1
+	let OmniCpp_GlobalScopeSearch = 1
 	let OmniCpp_ShowScopeInAbbr = 1
 	let OmniCpp_ShowPrototypeInAbbr = 1
-	let OmniCpp_ShowAccess = 1      
+	let OmniCpp_ShowAccess = 1
 	let OmniCpp_MayCompleteDot = 1
-	let OmniCpp_MayCompleteArrow = 1      
-	let OmniCpp_MayCompleteScope = 1      
+	let OmniCpp_MayCompleteArrow = 1
+	let OmniCpp_MayCompleteScope = 1
 	let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 	" Do not show preview window
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -125,7 +129,7 @@ noremap <silent> <F9> :TagbarToggle<CR>
 noremap <silent> <F8> :BufExplorer<CR>
 
 " For MiniBufExplorer
-"let g:miniBufExplorerAutoUpdate = 1 
+"let g:miniBufExplorerAutoUpdate = 1
 "let g:miniBufExplVSplit = 20   " column width in chars
 "let g:miniBufExplUseSingleClick = 1
 "let g:miniBufExplMapWindowNavVim = 1
@@ -147,16 +151,10 @@ let g:ctrlp_custom_ignore={
 	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$\|release$\|debug$',
 	\}
 
-" For powerline
-if !has('win32') && !has('win64')
-	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-	let g:Powerline_symbols = 'fancy'
-endif
-
 " For vim-airline
 set laststatus=2
 let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail_improved'
 let g:airline#extensions#whitespace#enabled = 0
@@ -194,3 +192,10 @@ let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:tex_fold_enabled=1
+
+" For ChatGPT
+let g:chat_gpt_max_tokens=2000
+let g:chat_gpt_model='gpt-4'
+let g:chat_gpt_session_mode=1
+let g:chat_gpt_temperature = 0.3
+let g:chat_gpt_lang = 'English'
